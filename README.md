@@ -1,20 +1,4 @@
 # ReimagineTruth.io
-
-ReimagineTruth.io/
-├── index.html            # Main landing page
-├── nft.html              # Individual NFT details page
-├── css/
-│   └── styles.css        # Styling for the site
-├── js/
-│   └── main.js           # Main JavaScript logic
-├── assets/
-│   ├── logo.png          # Project logo
-│   ├── nft/              # Placeholder NFT images
-│   └── qr/               # Placeholder QR codes
-├── data/
-│   └── nft.json          # JSON with NFT data
-└── README.md             # Project overview
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +22,7 @@ ReimagineTruth.io/
     <script src="js/main.js"></script>
 </body>
 </html>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,6 +49,7 @@ ReimagineTruth.io/
     <script src="js/main.js"></script>
 </body>
 </html>
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -102,10 +88,18 @@ footer {
     background-color: #222;
     color: #fff;
 }
+
 // Load NFT Data
 fetch('data/nft.json')
     .then(response => response.json())
-    .then(data => displayNFTs(data));
+    .then(data => {
+        displayNFTs(data);
+        const urlParams = new URLSearchParams(window.location.search);
+        const nftId = urlParams.get('id');
+        if (nftId) {
+            displayNFTDetails(data, nftId);
+        }
+    });
 
 // Display NFTs in the grid
 function displayNFTs(nfts) {
@@ -121,27 +115,10 @@ function displayNFTs(nfts) {
         grid.appendChild(div);
     });
 }
-[
-    {
-        "id": 1,
-        "name": "Truth Seeker #1",
-        "rarity": "Rainbow Rare",
-        "story": "A seeker of wisdom in the Reimagine Truth universe.",
-        "image": "assets/nft/seeker1.png",
-        "attributes": ["Power: 50", "Skill: Enlightenment"],
-        "qr": "assets/qr/seeker1.png"
-    },
-    {
-        "id": 2,
-        "name": "Truth Seeker #2",
-        "rarity": "Ultra Rare",
-        "story": "A guardian of ancient knowledge.",
-        "image": "assets/nft/seeker2.png",
-        "attributes": ["Power: 45", "Skill: Insight"],
-        "qr": "assets/qr/seeker2.png"
-    }
-]
 
-
-
-
+// Display NFT details on the NFT details page
+function displayNFTDetails(nfts, id) {
+    const nft = nfts.find(nft => nft.id == id);
+    if (nft) {
+        document.getElementById('nft-name').innerText = nft.name;
+        document.get
