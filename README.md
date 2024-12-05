@@ -126,49 +126,6 @@
                 sidebar.classList.add('hidden');
             }
         });
-
-        // Load NFT Data
-        fetch('data/nft.json')
-            .then(response => response.json())
-            .then(data => {
-                displayNFTs(data);
-                const urlParams = new URLSearchParams(window.location.search);
-                const nftId = urlParams.get('id');
-                if (nftId) {
-                    displayNFTDetails(data, nftId);
-                }
-            });
-
-        // Display NFTs in the grid
-        function displayNFTs(nfts) {
-            const grid = document.getElementById('nft-grid');
-            nfts.forEach(nft => {
-                const div = document.createElement('div');
-                div.classList.add('border', 'border-gray-700', 'p-4', 'bg-gray-800');
-                div.innerHTML = `
-                    <img src="${nft.image}" alt="${nft.name}" class="w-full mb-2">
-                    <h3 class="text-xl font-bold">${nft.name}</h3>
-                    <p>Rarity: ${nft.rarity}</p>
-                    <a href="nft.html?id=${nft.id}" class="text-blue-400" target="_blank">View Details</a>
-                `;
-                grid.appendChild(div);
-            });
-        }
-
-        // Display NFT details on the NFT details page
-        function displayNFTDetails(nfts, id) {
-            const nft = nfts.find(nft => nft.id == id);
-            if (nft) {
-                document.getElementById('nft-name').innerText = nft.name;
-                document.getElementById('nft-image').src = nft.image;
-                document.getElementById('nft-image').alt = nft.name;
-                document.getElementById('nft-story').innerText = nft.effect;
-                document.getElementById('nft-rarity').innerText = nft.rarity;
-                document.getElementById('nft-attributes').innerText = `Type: ${nft.type}, Level: ${nft.level}, Style Variant: ${nft.style_variant}, Attack: ${nft.attack}, Defense: ${nft.defense}, Set ID: ${nft.set_id}, Serial Number: ${nft.serial_number}, Symbol: ${nft.symbol}, Power: ${nft.attributes.power}, Color: ${nft.attributes.color}, Special Ability: ${nft.attributes.special_ability}`;
-                document.getElementById('qr-code').src = nft.qrCode;
-                document.getElementById('qr-code').alt = `QR Code for ${nft.name}`;
-            }
-        }
   </script>
  </body>
 </html>
