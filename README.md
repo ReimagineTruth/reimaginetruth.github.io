@@ -17,18 +17,19 @@
         .fade-in {
             animation: fadeIn 2s ease-in-out;
         }
-        @keyframes slideIn {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        .nft-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
         }
-        .slide-in {
-            animation: slideIn 1s ease-in-out;
+        .nft-card {
+            transition: transform 0.3s ease-in-out;
+        }
+        .nft-card:hover {
+            transform: scale(1.05);
         }
         .sidebar {
             transition: transform 0.3s ease-in-out;
-        }
-        .sidebar:hover {
-            transform: translateX(0);
         }
         .sidebar-item {
             transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -38,9 +39,22 @@
             color: #FFFFFF;
         }
         .sticky-sidebar {
-            position: -webkit-sticky;
             position: sticky;
             top: 0;
+        }
+        @media screen and (min-width: 1024px) {
+            .nft-card {
+                padding: 1.5rem;
+            }
+            .nft-card img {
+                height: 300px;
+                object-fit: contain;
+            }
+        }
+        @media screen and (max-width: 1023px) {
+            .nft-card img {
+                height: 250px;
+            }
         }
     </style>
 </head>
@@ -92,7 +106,7 @@
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4" id="nft-grid">
                     <!-- Card 1 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#1" style="display: none;">
+                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#1">
                         <img alt="NFT character with a futuristic look" class="w-full mb-2" src="https://i.ibb.co/1mJM8ns/Image-7.png">
                         <h3 class="text-xl font-bold">Truth Seeker #1</h3>
                         <p>Rarity: Common</p>
@@ -100,7 +114,7 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#2" style="display: none;">
+                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#2">
                         <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/zbjm89d/Image-4.png">
                         <h3 class="text-xl font-bold">Truth Seeker #2</h3>
                         <p>Rarity: Rare</p>
@@ -108,7 +122,7 @@
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#3" style="display: none;">
+                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#3">
                         <img alt="NFT character with a cyberpunk style" class="w-full mb-2" src="https://i.ibb.co/z8F7HW5/Image-3.png">
                         <h3 class="text-xl font-bold">Truth Seeker #3</h3>
                         <p>Rarity: Ultra Rare</p>
@@ -116,7 +130,7 @@
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#4" style="display: none;">
+                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#4">
                         <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/XXWGTy4/Image-5.png">
                         <h3 class="text-xl font-bold">Truth Seeker #4</h3>
                         <p>Rarity: Rare</p>
@@ -126,54 +140,9 @@
             </main>
             <footer class="bg-gray-800 text-white p-4 text-center">
                 <p>© 2024 Reimagine Truth. All rights reserved.</p>
-                <div id="view-all-container" style="display: none;" class="mt-4">
-                    <button class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="showAllNFTs()">View All</button>
-                </div>
             </footer>
         </div>
     </div>
+    <audio id="click-sound" src="https://www.soundjay.com/button/sounds/button-16.mp3" preload="auto"></audio>
     <script>
-        document.getElementById('menu-button').addEventListener('click', function() {
-            const sidebar = document.getElementById('sidebar');
-            if (sidebar.classList.contains('hidden')) {
-                sidebar.classList.remove('hidden');
-            } else {
-                sidebar.classList.add('hidden');
-            }
-        });
-
-        function searchNFT() {
-            const searchValue = document.getElementById('search-bar').value.trim();
-            const nftCards = document.querySelectorAll('.nft-card');
-            let found = false;
-
-            nftCards.forEach(card => {
-                if (card.getAttribute('data-serial') === searchValue) {
-                    card.style.display = 'block';
-                    found = true;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            if (found) {
-                document.getElementById('view-all-container').style.display = 'flex';
-            } else {
-                document.getElementById('view-all-container').style.display = 'none';
-            }
-        }
-
-        function showAllNFTs() {
-            const nftCards = document.querySelectorAll('.nft-card');
-            nftCards.forEach(card => {
-                card.style.display = 'block';
-            });
-            document.getElementById('view-all-container').style.display = 'none';
-        }
-
-        function scrollToStart() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
+        document
