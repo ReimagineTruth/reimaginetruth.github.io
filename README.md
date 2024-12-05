@@ -1,4 +1,3 @@
-# ReimagineTruth.io
 <html lang="en">
  <head>
   <meta charset="utf-8"/>
@@ -18,7 +17,7 @@
  </head>
  <body class="bg-gray-900 text-gray-200">
   <header class="bg-gray-800 text-white p-4 flex flex-col items-center">
-   <img alt="A placeholder logo for Reimagine Truth" class="w-36 mb-2" height="50" src="https://storage.googleapis.com/a1aa/image/pUX3OKi1PQIEJdlaHVZqye3IP6JkxAGmX0IuQgSWD56fewvnA.jpg" width="150"/>
+   <img alt="Leonardo-Kino-XL-A-sharplydressed-intenselooking-male-characte-3" class="w-36 mb-2" height="50" src="https://i.ibb.co/FkQLvDk/Leonardo-Kino-XL-A-sharplydressed-intenselooking-male-characte-3.jpg" width="150"/>
    <h1 class="text-2xl font-bold">
     Welcome to Reimagine Truth
    </h1>
@@ -29,7 +28,7 @@
   <main class="p-4">
    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="nft-grid">
     <div class="border border-gray-700 p-4 bg-gray-800">
-     <img alt="Placeholder image of NFT character 1" class="w-full mb-2" height="200" src="https://ipfs.io/ipfs/QmExampleHash1" width="200"/>
+     <img alt="Image-7" class="w-full mb-2" height="200" src="https://i.ibb.co/Wn4dwnd/Image-7.png" width="200"/>
      <h3 class="text-xl font-bold">
       Truth Seeker #1
      </h3>
@@ -41,7 +40,7 @@
      </a>
     </div>
     <div class="border border-gray-700 p-4 bg-gray-800">
-     <img alt="Placeholder image of NFT character 2" class="w-full mb-2" height="200" src="https://ipfs.io/ipfs/QmExampleHash2" width="200"/>
+     <img alt="Image-4" class="w-full mb-2" height="200" src="https://i.ibb.co/Hp4yn0y/Image-4.png" width="200"/>
      <h3 class="text-xl font-bold">
       Truth Seeker #2
      </h3>
@@ -53,7 +52,7 @@
      </a>
     </div>
     <div class="border border-gray-700 p-4 bg-gray-800">
-     <img alt="Placeholder image of NFT character 3" class="w-full mb-2" height="200" src="https://ipfs.io/ipfs/QmExampleHash3" width="200"/>
+     <img alt="Image-3" class="w-full mb-2" height="200" src="https://i.ibb.co/phrB0xL/Image-3.png" width="200"/>
      <h3 class="text-xl font-bold">
       Truth Seeker #3
      </h3>
@@ -61,30 +60,6 @@
       Rarity: Ultra Rare
      </p>
      <a class="text-blue-400" href="nft.html?id=3">
-      View Details
-     </a>
-    </div>
-    <div class="border border-gray-700 p-4 bg-gray-800">
-     <img alt="Placeholder image of NFT character 4" class="w-full mb-2" height="200" src="https://ipfs.io/ipfs/QmExampleHash4" width="200"/>
-     <h3 class="text-xl font-bold">
-      Truth Seeker #4
-     </h3>
-     <p>
-      Rarity: Secret Rare
-     </p>
-     <a class="text-blue-400" href="nft.html?id=4">
-      View Details
-     </a>
-    </div>
-    <div class="border border-gray-700 p-4 bg-gray-800">
-     <img alt="Placeholder image of NFT character 5" class="w-full mb-2" height="200" src="https://ipfs.io/ipfs/QmExampleHash5" width="200"/>
-     <h3 class="text-xl font-bold">
-      Truth Seeker #5
-     </h3>
-     <p>
-      Rarity: Mosaic Rare
-     </p>
-     <a class="text-blue-400" href="nft.html?id=5">
       View Details
      </a>
     </div>
