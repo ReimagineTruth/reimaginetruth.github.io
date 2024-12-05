@@ -35,7 +35,7 @@
      <p>
       Rarity: Common
      </p>
-     <a class="text-blue-400" href="nft.html?id=1">
+     <a class="text-blue-400" href="https://github.com/username/Reimagine-Truth/nft-1" target="_blank">
       View Details
      </a>
     </div>
@@ -47,7 +47,7 @@
      <p>
       Rarity: Rare
      </p>
-     <a class="text-blue-400" href="nft.html?id=2">
+     <a class="text-blue-400" href="https://github.com/username/Reimagine-Truth/nft-2" target="_blank">
       View Details
      </a>
     </div>
@@ -59,7 +59,7 @@
      <p>
       Rarity: Ultra Rare
      </p>
-     <a class="text-blue-400" href="nft.html?id=3">
+     <a class="text-blue-400" href="https://github.com/username/Reimagine-Truth/nft-3" target="_blank">
       View Details
      </a>
     </div>
@@ -93,7 +93,7 @@
                     <img src="${nft.image}" alt="${nft.name}" class="w-full mb-2">
                     <h3 class="text-xl font-bold">${nft.name}</h3>
                     <p>Rarity: ${nft.rarity}</p>
-                    <a href="nft.html?id=${nft.id}" class="text-blue-400">View Details</a>
+                    <a href="https://github.com/username/Reimagine-Truth/nft-${nft.id}" class="text-blue-400" target="_blank">View Details</a>
                 `;
                 grid.appendChild(div);
             });
@@ -115,4 +115,5 @@
         }
   </script>
  </body>
+</html>
 </html>
