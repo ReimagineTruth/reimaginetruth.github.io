@@ -9,6 +9,8 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2); /* Gradient background */
+            color: #ffffff; /* White text for contrast */
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -53,10 +55,10 @@
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
-    <div class="flex flex-col md:flex-row">
+    <div class="relative z-10 flex flex-col md:flex-row">
         <aside class="w-full md:w-64 bg-gray-800 h-auto md:h-screen p-4 hidden md:block sticky-sidebar sidebar" id="sidebar">
             <div class="flex items-center mb-6">
-                <img alt="A sharply dressed, intense-looking male character" class="w-16 h-16 rounded-full" height="64" src="https://i.ibb.co/p30Q5fs/Leonardo-Kino-XL-A-sharplydressed-intenselooking-male-characte-3.jpg" width="64"/>
+                <img alt="A sharply dressed, intense-looking male character" class="w-16 h-16 rounded-full" height="64" src="https://i.ibb.co/p30Q5fs/Leonardo-Kino-XL-A-sharplydressed-intenselooking-male-characte-3.jpg" width="64">
                 <h2 class="ml-4 text-xl font-bold">Reimagine Truth</h2>
             </div>
             <nav>
@@ -101,7 +103,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4" id="nft-grid">
                     <!-- Card 1 -->
                     <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#1" style="display: none;">
-                        <img alt="NFT character with a futuristic look" class="w-full mb-2" src="https://i.ibb.co/1mJM8ns/Image-7.png">
+                        <img alt="NFT character with a futuristic look" class="w-full mb-2" src="https://i.ibb.co/1mJM8ns/Image-7.png"/>
                         <h3 class="text-xl font-bold">Truth Seeker #1</h3>
                         <p>Rarity: Common</p>
                         <a href="#" class="text-blue-400">View Details</a>
@@ -109,7 +111,7 @@
 
                     <!-- Card 2 -->
                     <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#2" style="display: none;">
-                        <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/zbjm89d/Image-4.png">
+                        <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/zbjm89d/Image-4.png"/>
                         <h3 class="text-xl font-bold">Truth Seeker #2</h3>
                         <p>Rarity: Rare</p>
                         <a href="#" class="text-blue-400">View Details</a>
@@ -117,7 +119,7 @@
 
                     <!-- Card 3 -->
                     <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#3" style="display: none;">
-                        <img alt="NFT character with a cyberpunk style" class="w-full mb-2" src="https://i.ibb.co/z8F7HW5/Image-3.png">
+                        <img alt="NFT character with a cyberpunk style" class="w-full mb-2" src="https://i.ibb.co/z8F7HW5/Image-3.png"/>
                         <h3 class="text-xl font-bold">Truth Seeker #3</h3>
                         <p>Rarity: Ultra Rare</p>
                         <a href="#" class="text-blue-400">View Details</a>
@@ -125,7 +127,7 @@
 
                     <!-- Card 4 -->
                     <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#4" style="display: none;">
-                        <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/XXWGTy4/Image-5.png">
+                        <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/XXWGTy4/Image-5.png"/>
                         <h3 class="text-xl font-bold">Truth Seeker #4</h3>
                         <p>Rarity: Rare</p>
                         <a href="#" class="text-blue-400">View Details</a>
@@ -203,4 +205,5 @@
         });
     </script>
 </body>
+</html>
 </html>
