@@ -9,8 +9,6 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2); /* Gradient background */
-            color: #ffffff; /* White text for contrast */
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -36,8 +34,8 @@
             transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
         }
         .sidebar-item:hover {
-            background-color: #4A5568;
-            color: #FFFFFF;
+            background-color: #E2E8F0;
+            color: #1A202C;
         }
         .sticky-sidebar {
             position: -webkit-sticky;
@@ -54,36 +52,36 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-200">
-    <div class="relative z-10 flex flex-col md:flex-row">
-        <aside class="w-full md:w-64 bg-gray-800 h-auto md:h-screen p-4 hidden md:block sticky-sidebar sidebar" id="sidebar">
+<body class="bg-gray-100 text-gray-800">
+    <div class="flex flex-col md:flex-row">
+        <aside class="w-full md:w-64 bg-white h-auto md:h-screen p-4 hidden md:block sticky-sidebar sidebar" id="sidebar">
             <div class="flex items-center mb-6">
-                <img alt="A sharply dressed, intense-looking male character" class="w-16 h-16 rounded-full" height="64" src="https://i.ibb.co/p30Q5fs/Leonardo-Kino-XL-A-sharplydressed-intenselooking-male-characte-3.jpg" width="64">
+                <img alt="A sharply dressed, intense-looking male character" class="w-16 h-16 rounded-full" height="64" src="https://i.ibb.co/p30Q5fs/Leonardo-Kino-XL-A-sharplydressed-intenselooking-male-characte-3.jpg" width="64"/>
                 <h2 class="ml-4 text-xl font-bold">Reimagine Truth</h2>
             </div>
             <nav>
                 <ul>
                     <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-white sidebar-item" href="#" onclick="scrollToStart()">Home</a>
+                        <a class="text-lg text-gray-800 hover:text-gray-900 sidebar-item" href="#" onclick="scrollToStart()">Home</a>
                     </li>
                     <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-white sidebar-item" href="#">My Assets</a>
+                        <a class="text-lg text-gray-800 hover:text-gray-900 sidebar-item" href="#">My Assets</a>
                     </li>
                     <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-white sidebar-item" href="#">About</a>
+                        <a class="text-lg text-gray-800 hover:text-gray-900 sidebar-item" href="#">About</a>
                     </li>
                     <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-white sidebar-item" href="https://linktr.ee/reimagine_truth" target="_blank">Community</a>
+                        <a class="text-lg text-gray-800 hover:text-gray-900 sidebar-item" href="https://linktr.ee/reimagine_truth" target="_blank">Community</a>
                     </li>
                     <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-white sidebar-item" href="#">Settings</a>
+                        <a class="text-lg text-gray-800 hover:text-gray-900 sidebar-item" href="#">Settings</a>
                     </li>
                 </ul>
             </nav>
         </aside>
         <div class="flex-1">
-            <header class="bg-gray-800 text-white p-4 flex justify-between items-center relative">
-                <button class="md:hidden text-white absolute top-4 left-4" id="menu-button">
+            <header class="bg-white text-gray-800 p-4 flex justify-between items-center relative shadow-md">
+                <button class="md:hidden text-gray-800 absolute top-4 left-4" id="menu-button">
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="flex flex-col items-center w-full">
@@ -91,10 +89,13 @@
                     <h1 class="text-2xl font-bold text-center fade-in">Welcome to Reimagine Truth</h1>
                     <p class="text-lg text-center fade-in">Explore the unique stories of our NFT characters.</p>
                 </div>
+                <button id="dark-mode-toggle" class="absolute top-4 right-4 p-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i class="fas fa-moon"></i>
+                </button>
             </header>
             <main class="p-4">
                 <div class="flex justify-center mb-6">
-                    <input type="text" id="search-bar" placeholder="Search your NFT serial number #" class="w-full max-w-md p-2 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="text" id="search-bar" placeholder="Search your NFT serial number #" class="w-full max-w-md p-2 rounded bg-gray-200 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <button class="ml-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="searchNFT()">Search</button>
                 </div>
                 <div class="flex justify-center mb-6" id="view-all-container" style="display: none;">
@@ -102,39 +103,39 @@
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4" id="nft-grid">
                     <!-- Card 1 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#1" style="display: none;">
-                        <img alt="NFT character with a futuristic look" class="w-full mb-2" src="https://i.ibb.co/1mJM8ns/Image-7.png"/>
+                    <div class="border border-gray-300 p-4 bg-white nft-card slide-in" data-serial="#1" style="display: none;">
+                        <img alt="NFT character with a futuristic look" class="w-full mb-2" src="https://i.ibb.co/1mJM8ns/Image-7.png">
                         <h3 class="text-xl font-bold">Truth Seeker #1</h3>
                         <p>Rarity: Common</p>
-                        <a href="#" class="text-blue-400">View Details</a>
+                        <a href="#" class="text-blue-500">View Details</a>
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#2" style="display: none;">
-                        <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/zbjm89d/Image-4.png"/>
+                    <div class="border border-gray-300 p-4 bg-white nft-card slide-in" data-serial="#2" style="display: none;">
+                        <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/zbjm89d/Image-4.png">
                         <h3 class="text-xl font-bold">Truth Seeker #2</h3>
                         <p>Rarity: Rare</p>
-                        <a href="#" class="text-blue-400">View Details</a>
+                        <a href="#" class="text-blue-500">View Details</a>
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#3" style="display: none;">
-                        <img alt="NFT character with a cyberpunk style" class="w-full mb-2" src="https://i.ibb.co/z8F7HW5/Image-3.png"/>
+                    <div class="border border-gray-300 p-4 bg-white nft-card slide-in" data-serial="#3" style="display: none;">
+                        <img alt="NFT character with a cyberpunk style" class="w-full mb-2" src="https://i.ibb.co/z8F7HW5/Image-3.png">
                         <h3 class="text-xl font-bold">Truth Seeker #3</h3>
                         <p>Rarity: Ultra Rare</p>
-                        <a href="#" class="text-blue-400">View Details</a>
+                        <a href="#" class="text-blue-500">View Details</a>
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#4" style="display: none;">
-                        <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/XXWGTy4/Image-5.png"/>
+                    <div class="border border-gray-300 p-4 bg-white nft-card slide-in" data-serial="#4" style="display: none;">
+                        <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/XXWGTy4/Image-5.png">
                         <h3 class="text-xl font-bold">Truth Seeker #4</h3>
                         <p>Rarity: Rare</p>
-                        <a href="#" class="text-blue-400">View Details</a>
+                        <a href="#" class="text-blue-500">View Details</a>
                     </div>
                 </div>
             </main>
-            <footer class="bg-gray-800 text-white p-4 text-center">
+            <footer class="bg-white text-gray-800 p-4 text-center shadow-md">
                 <p>© 2024 Reimagine Truth. All rights reserved.</p>
                 <div id="view-all-container" style="display: none;" class="mt-4">
                     <button class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="showAllNFTs()">View All</button>
@@ -203,7 +204,32 @@
                 }, 200);
             });
         });
+
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('bg-gray-900');
+            document.body.classList.toggle('text-gray-200');
+            document.body.classList.toggle('bg-gray-100');
+            document.body.classList.toggle('text-gray-800');
+
+            const elementsToToggle = document.querySelectorAll('.bg-white, .bg-gray-200, .text-gray-800, .text-gray-900, .border-gray-300');
+            elementsToToggle.forEach(element => {
+                element.classList.toggle('bg-gray-800');
+                element.classList.toggle('bg-gray-700');
+                element.classList.toggle('text-gray-200');
+                element.classList.toggle('text-gray-100');
+                element.classList.toggle('border-gray-700');
+            });
+
+            const icon = darkModeToggle.querySelector('i');
+            if (icon.classList.contains('fa-moon')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
     </script>
 </body>
-</html>
 </html>
