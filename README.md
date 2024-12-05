@@ -58,9 +58,13 @@
                 </div>
             </header>
             <main class="p-4">
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+                <div class="flex justify-center mb-6">
+                    <input type="text" id="search-bar" placeholder="Search your NFT serial number #" class="w-full max-w-md p-2 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button class="ml-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="searchNFT()">Search</button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4" id="nft-grid">
                     <!-- Card 1 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800">
+                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card" data-serial="#1">
                         <img alt="NFT character with a futuristic look" class="w-full mb-2" src="https://i.ibb.co/1mJM8ns/Image-7.png" />
                         <h3 class="text-xl font-bold">Truth Seeker #1</h3>
                         <p>Rarity: Common</p>
@@ -68,7 +72,7 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800">
+                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card" data-serial="#2">
                         <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/zbjm89d/Image-4.png" />
                         <h3 class="text-xl font-bold">Truth Seeker #2</h3>
                         <p>Rarity: Rare</p>
@@ -76,7 +80,7 @@
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800">
+                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card" data-serial="#3">
                         <img alt="NFT character with a cyberpunk style" class="w-full mb-2" src="https://i.ibb.co/z8F7HW5/Image-3.png" />
                         <h3 class="text-xl font-bold">Truth Seeker #3</h3>
                         <p>Rarity: Ultra Rare</p>
@@ -84,7 +88,7 @@
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800">
+                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card" data-serial="#4">
                         <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/XXWGTy4/Image-5.png" />
                         <h3 class="text-xl font-bold">Truth Seeker #4</h3>
                         <p>Rarity: Rare</p>
@@ -106,6 +110,19 @@
                 sidebar.classList.add('hidden');
             }
         });
+
+        function searchNFT() {
+            const searchValue = document.getElementById('search-bar').value.trim();
+            const nftCards = document.querySelectorAll('.nft-card');
+
+            nftCards.forEach(card => {
+                if (card.getAttribute('data-serial') === searchValue) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
     </script>
 </body>
 </html>
