@@ -1,4 +1,5 @@
 # ReimagineTruth.io
+
 ReimagineTruth.io/
 ├── index.html            # Main landing page
 ├── nft.html              # Individual NFT details page
