@@ -24,11 +24,29 @@
         .slide-in {
             animation: slideIn 1s ease-in-out;
         }
+        .sidebar {
+            transition: transform 0.3s ease-in-out;
+        }
+        .sidebar:hover {
+            transform: translateX(0);
+        }
+        .sidebar-item {
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        .sidebar-item:hover {
+            background-color: #4A5568;
+            color: #FFFFFF;
+        }
+        .sticky-sidebar {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
     <div class="flex flex-col md:flex-row">
-        <aside class="w-full md:w-64 bg-gray-800 h-auto md:h-screen p-4 hidden md:block" id="sidebar">
+        <aside class="w-full md:w-64 bg-gray-800 h-auto md:h-screen p-4 hidden md:block sticky-sidebar sidebar" id="sidebar">
             <div class="flex items-center mb-6">
                 <img alt="A sharply dressed, intense-looking male character" class="w-16 h-16 rounded-full" height="64" src="https://i.ibb.co/p30Q5fs/Leonardo-Kino-XL-A-sharplydressed-intenselooking-male-characte-3.jpg" width="64"/>
                 <h2 class="ml-4 text-xl font-bold">Reimagine Truth</h2>
@@ -36,19 +54,19 @@
             <nav>
                 <ul>
                     <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-white" href="#" onclick="scrollToStart()">Home</a>
+                        <a class="text-lg text-gray-200 hover:text-white sidebar-item" href="#" onclick="scrollToStart()">Home</a>
                     </li>
                     <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-white" href="#">My Assets</a>
+                        <a class="text-lg text-gray-200 hover:text-white sidebar-item" href="#">My Assets</a>
                     </li>
                     <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-white" href="#">About</a>
+                        <a class="text-lg text-gray-200 hover:text-white sidebar-item" href="#">About</a>
                     </li>
                     <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-white" href="https://linktr.ee/reimagine_truth" target="_blank">Community</a>
+                        <a class="text-lg text-gray-200 hover:text-white sidebar-item" href="https://linktr.ee/reimagine_truth" target="_blank">Community</a>
                     </li>
                     <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-white" href="#">Settings</a>
+                        <a class="text-lg text-gray-200 hover:text-white sidebar-item" href="#">Settings</a>
                     </li>
                 </ul>
             </nav>
