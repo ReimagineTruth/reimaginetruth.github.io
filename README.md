@@ -27,8 +27,8 @@
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
-    <div class="flex">
-        <aside class="w-64 bg-gray-800 h-screen p-4 hidden md:block" id="sidebar">
+    <div class="flex flex-col md:flex-row">
+        <aside class="w-full md:w-64 bg-gray-800 h-auto md:h-screen p-4 hidden md:block" id="sidebar">
             <div class="flex items-center mb-6">
                 <img alt="A sharply dressed, intense-looking male character" class="w-16 h-16 rounded-full" height="64" src="https://i.ibb.co/p30Q5fs/Leonardo-Kino-XL-A-sharplydressed-intenselooking-male-characte-3.jpg" width="64"/>
                 <h2 class="ml-4 text-xl font-bold">Reimagine Truth</h2>
