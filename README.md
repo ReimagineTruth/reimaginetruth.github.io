@@ -17,6 +17,13 @@
         .fade-in {
             animation: fadeIn 2s ease-in-out;
         }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .slide-in {
+            animation: slideIn 1s ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -29,7 +36,7 @@
             <nav>
                 <ul>
                     <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-white" href="#">Home</a>
+                        <a class="text-lg text-gray-200 hover:text-white" href="#" onclick="scrollToStart()">Home</a>
                     </li>
                     <li class="mb-4">
                         <a class="text-lg text-gray-200 hover:text-white" href="#">My Assets</a>
@@ -62,34 +69,37 @@
                     <input type="text" id="search-bar" placeholder="Search your NFT serial number #" class="w-full max-w-md p-2 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <button class="ml-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="searchNFT()">Search</button>
                 </div>
+                <div class="flex justify-center mb-6" id="view-all-container" style="display: none;">
+                    <button class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="showAllNFTs()">View All</button>
+                </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4" id="nft-grid">
                     <!-- Card 1 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card" data-serial="#1">
-                        <img alt="NFT character with a futuristic look" class="w-full mb-2" src="https://i.ibb.co/1mJM8ns/Image-7.png" />
+                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#1" style="display: none;">
+                        <img alt="NFT character with a futuristic look" class="w-full mb-2" src="https://i.ibb.co/1mJM8ns/Image-7.png">
                         <h3 class="text-xl font-bold">Truth Seeker #1</h3>
                         <p>Rarity: Common</p>
                         <a href="#" class="text-blue-400">View Details</a>
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card" data-serial="#2">
-                        <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/zbjm89d/Image-4.png" />
+                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#2" style="display: none;">
+                        <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/zbjm89d/Image-4.png">
                         <h3 class="text-xl font-bold">Truth Seeker #2</h3>
                         <p>Rarity: Rare</p>
                         <a href="#" class="text-blue-400">View Details</a>
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card" data-serial="#3">
-                        <img alt="NFT character with a cyberpunk style" class="w-full mb-2" src="https://i.ibb.co/z8F7HW5/Image-3.png" />
+                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#3" style="display: none;">
+                        <img alt="NFT character with a cyberpunk style" class="w-full mb-2" src="https://i.ibb.co/z8F7HW5/Image-3.png">
                         <h3 class="text-xl font-bold">Truth Seeker #3</h3>
                         <p>Rarity: Ultra Rare</p>
                         <a href="#" class="text-blue-400">View Details</a>
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card" data-serial="#4">
-                        <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/XXWGTy4/Image-5.png" />
+                    <div class="border border-gray-700 p-4 bg-gray-800 nft-card slide-in" data-serial="#4" style="display: none;">
+                        <img alt="NFT character with a mystical aura" class="w-full mb-2" src="https://i.ibb.co/XXWGTy4/Image-5.png">
                         <h3 class="text-xl font-bold">Truth Seeker #4</h3>
                         <p>Rarity: Rare</p>
                         <a href="#" class="text-blue-400">View Details</a>
@@ -98,6 +108,9 @@
             </main>
             <footer class="bg-gray-800 text-white p-4 text-center">
                 <p>© 2024 Reimagine Truth. All rights reserved.</p>
+                <div id="view-all-container" style="display: none;" class="mt-4">
+                    <button class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="showAllNFTs()">View All</button>
+                </div>
             </footer>
         </div>
     </div>
@@ -114,14 +127,34 @@
         function searchNFT() {
             const searchValue = document.getElementById('search-bar').value.trim();
             const nftCards = document.querySelectorAll('.nft-card');
+            let found = false;
 
             nftCards.forEach(card => {
                 if (card.getAttribute('data-serial') === searchValue) {
                     card.style.display = 'block';
+                    found = true;
                 } else {
                     card.style.display = 'none';
                 }
             });
+
+            if (found) {
+                document.getElementById('view-all-container').style.display = 'flex';
+            } else {
+                document.getElementById('view-all-container').style.display = 'none';
+            }
+        }
+
+        function showAllNFTs() {
+            const nftCards = document.querySelectorAll('.nft-card');
+            nftCards.forEach(card => {
+                card.style.display = 'block';
+            });
+            document.getElementById('view-all-container').style.display = 'none';
+        }
+
+        function scrollToStart() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
