@@ -10,6 +10,13 @@
         body {
             font-family: 'Roboto', sans-serif;
         }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -45,9 +52,9 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="flex flex-col items-center w-full">
-                    <img alt="A sharply dressed, intense-looking male character" class="w-36 mb-2" height="50" src="https://i.ibb.co/p30Q5fs/Leonardo-Kino-XL-A-sharplydressed-intenselooking-male-characte-3.jpg" width="150"/>
-                    <h1 class="text-2xl font-bold text-center">Welcome to Reimagine Truth</h1>
-                    <p class="text-lg text-center">Explore the unique stories of our NFT characters.</p>
+                    <img alt="A sharply dressed, intense-looking male character" class="w-36 mb-2 fade-in" height="50" src="https://i.ibb.co/p30Q5fs/Leonardo-Kino-XL-A-sharplydressed-intenselooking-male-characte-3.jpg" width="150"/>
+                    <h1 class="text-2xl font-bold text-center fade-in">Welcome to Reimagine Truth</h1>
+                    <p class="text-lg text-center fade-in">Explore the unique stories of our NFT characters.</p>
                 </div>
             </header>
             <main class="p-4">
