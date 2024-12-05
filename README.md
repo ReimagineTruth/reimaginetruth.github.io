@@ -1,124 +1,143 @@
 # ReimagineTruth.io
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reimagine Truth</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <header>
-        <img src="assets/logo.png" alt="Reimagine Truth Logo" class="logo">
-        <h1>Welcome to Reimagine Truth</h1>
-        <p>Explore the unique stories of our NFT characters.</p>
-    </header>
-    <main>
-        <div id="nft-grid" class="grid"></div>
-    </main>
-    <footer>
-        <p>© 2024 Reimagine Truth. All rights reserved.</p>
-    </footer>
-    <script src="js/main.js"></script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFT Details</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <header>
-        <img src="assets/logo.png" alt="Reimagine Truth Logo" class="logo">
-        <h1 id="nft-name">NFT Name</h1>
-    </header>
-    <main>
-        <img id="nft-image" src="assets/nft/placeholder.png" alt="NFT Image" class="nft-image">
-        <p id="nft-story">Loading story...</p>
-        <p><strong>Rarity:</strong> <span id="nft-rarity">Unknown</span></p>
-        <p><strong>Attributes:</strong> <span id="nft-attributes">N/A</span></p>
-        <img id="qr-code" src="assets/qr/placeholder.png" alt="QR Code" class="qr-code">
-    </main>
-    <footer>
-        <p>© 2024 Reimagine Truth. All rights reserved.</p>
-    </footer>
-    <script src="js/main.js"></script>
-</body>
-</html>
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #f4f4f9;
-    color: #333;
-}
-
-header {
-    padding: 20px;
-    background-color: #222;
-    color: #fff;
-}
-
-.logo {
-    width: 150px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.grid div {
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: #fff;
-}
-
-footer {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #222;
-    color: #fff;
-}
-
-// Load NFT Data
-fetch('data/nft.json')
-    .then(response => response.json())
-    .then(data => {
-        displayNFTs(data);
-        const urlParams = new URLSearchParams(window.location.search);
-        const nftId = urlParams.get('id');
-        if (nftId) {
-            displayNFTDetails(data, nftId);
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Reimagine Truth
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
         }
-    });
+  </style>
+ </head>
+ <body class="bg-gray-900 text-gray-200">
+  <header class="bg-gray-800 text-white p-4 flex flex-col items-center">
+   <img alt="A placeholder logo for Reimagine Truth" class="w-36 mb-2" height="50" src="https://storage.googleapis.com/a1aa/image/pUX3OKi1PQIEJdlaHVZqye3IP6JkxAGmX0IuQgSWD56fewvnA.jpg" width="150"/>
+   <h1 class="text-2xl font-bold">
+    Welcome to Reimagine Truth
+   </h1>
+   <p class="text-lg">
+    Explore the unique stories of our NFT characters.
+   </p>
+  </header>
+  <main class="p-4">
+   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="nft-grid">
+    <div class="border border-gray-700 p-4 bg-gray-800">
+     <img alt="Placeholder image of NFT character 1" class="w-full mb-2" height="200" src="https://ipfs.io/ipfs/QmExampleHash1" width="200"/>
+     <h3 class="text-xl font-bold">
+      Truth Seeker #1
+     </h3>
+     <p>
+      Rarity: Common
+     </p>
+     <a class="text-blue-400" href="nft.html?id=1">
+      View Details
+     </a>
+    </div>
+    <div class="border border-gray-700 p-4 bg-gray-800">
+     <img alt="Placeholder image of NFT character 2" class="w-full mb-2" height="200" src="https://ipfs.io/ipfs/QmExampleHash2" width="200"/>
+     <h3 class="text-xl font-bold">
+      Truth Seeker #2
+     </h3>
+     <p>
+      Rarity: Rare
+     </p>
+     <a class="text-blue-400" href="nft.html?id=2">
+      View Details
+     </a>
+    </div>
+    <div class="border border-gray-700 p-4 bg-gray-800">
+     <img alt="Placeholder image of NFT character 3" class="w-full mb-2" height="200" src="https://ipfs.io/ipfs/QmExampleHash3" width="200"/>
+     <h3 class="text-xl font-bold">
+      Truth Seeker #3
+     </h3>
+     <p>
+      Rarity: Ultra Rare
+     </p>
+     <a class="text-blue-400" href="nft.html?id=3">
+      View Details
+     </a>
+    </div>
+    <div class="border border-gray-700 p-4 bg-gray-800">
+     <img alt="Placeholder image of NFT character 4" class="w-full mb-2" height="200" src="https://ipfs.io/ipfs/QmExampleHash4" width="200"/>
+     <h3 class="text-xl font-bold">
+      Truth Seeker #4
+     </h3>
+     <p>
+      Rarity: Secret Rare
+     </p>
+     <a class="text-blue-400" href="nft.html?id=4">
+      View Details
+     </a>
+    </div>
+    <div class="border border-gray-700 p-4 bg-gray-800">
+     <img alt="Placeholder image of NFT character 5" class="w-full mb-2" height="200" src="https://ipfs.io/ipfs/QmExampleHash5" width="200"/>
+     <h3 class="text-xl font-bold">
+      Truth Seeker #5
+     </h3>
+     <p>
+      Rarity: Mosaic Rare
+     </p>
+     <a class="text-blue-400" href="nft.html?id=5">
+      View Details
+     </a>
+    </div>
+   </div>
+  </main>
+  <footer class="bg-gray-800 text-white p-4 text-center">
+   <p>
+    © 2024 Reimagine Truth. All rights reserved.
+   </p>
+  </footer>
+  <script>
+   // Load NFT Data
+        fetch('data/nft.json')
+            .then(response => response.json())
+            .then(data => {
+                displayNFTs(data);
+                const urlParams = new URLSearchParams(window.location.search);
+                const nftId = urlParams.get('id');
+                if (nftId) {
+                    displayNFTDetails(data, nftId);
+                }
+            });
 
-// Display NFTs in the grid
-function displayNFTs(nfts) {
-    const grid = document.getElementById('nft-grid');
-    nfts.forEach(nft => {
-        const div = document.createElement('div');
-        div.innerHTML = `
-            <img src="${nft.image}" alt="${nft.name}">
-            <h3>${nft.name}</h3>
-            <p>${nft.rarity}</p>
-            <a href="nft.html?id=${nft.id}">View Details</a>
-        `;
-        grid.appendChild(div);
-    });
-}
+        // Display NFTs in the grid
+        function displayNFTs(nfts) {
+            const grid = document.getElementById('nft-grid');
+            nfts.forEach(nft => {
+                const div = document.createElement('div');
+                div.classList.add('border', 'border-gray-700', 'p-4', 'bg-gray-800');
+                div.innerHTML = `
+                    <img src="${nft.image}" alt="${nft.name}" class="w-full mb-2">
+                    <h3 class="text-xl font-bold">${nft.name}</h3>
+                    <p>Rarity: ${nft.rarity}</p>
+                    <a href="nft.html?id=${nft.id}" class="text-blue-400">View Details</a>
+                `;
+                grid.appendChild(div);
+            });
+        }
 
-// Display NFT details on the NFT details page
-function displayNFTDetails(nfts, id) {
-    const nft = nfts.find(nft => nft.id == id);
-    if (nft) {
-        document.getElementById('nft-name').innerText = nft.name;
-        document.get
+        // Display NFT details on the NFT details page
+        function displayNFTDetails(nfts, id) {
+            const nft = nfts.find(nft => nft.id == id);
+            if (nft) {
+                document.getElementById('nft-name').innerText = nft.name;
+                document.getElementById('nft-image').src = nft.image;
+                document.getElementById('nft-image').alt = nft.name;
+                document.getElementById('nft-story').innerText = nft.effect;
+                document.getElementById('nft-rarity').innerText = nft.rarity;
+                document.getElementById('nft-attributes').innerText = `Type: ${nft.type}, Level: ${nft.level}, Style Variant: ${nft.style_variant}, Attack: ${nft.attack}, Defense: ${nft.defense}, Set ID: ${nft.set_id}, Serial Number: ${nft.serial_number}, Symbol: ${nft.symbol}, Power: ${nft.attributes.power}, Color: ${nft.attributes.color}, Special Ability: ${nft.attributes.special_ability}`;
+                document.getElementById('qr-code').src = nft.qrCode;
+                document.getElementById('qr-code').alt = `QR Code for ${nft.name}`;
+            }
+        }
+  </script>
+ </body>
+</html>
