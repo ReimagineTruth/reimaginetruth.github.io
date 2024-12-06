@@ -1,0 +1,122 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Sign Up Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        // Toggle dark mode
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            const darkModeButtonIcon = document.getElementById('darkModeButtonIcon');
+            if (document.documentElement.classList.contains('dark')) {
+                darkModeButtonIcon.classList.remove('fa-moon');
+                darkModeButtonIcon.classList.add('fa-sun');
+            } else {
+                darkModeButtonIcon.classList.remove('fa-sun');
+                darkModeButtonIcon.classList.add('fa-moon');
+            }
+        }
+
+        // Show sign up form
+        function showSignUp() {
+            document.getElementById('login').classList.add('hidden');
+            document.getElementById('signup').classList.remove('hidden');
+            document.getElementById('forgot-password').classList.add('hidden');
+        }
+
+        // Show login form
+        function showLogin() {
+            document.getElementById('signup').classList.add('hidden');
+            document.getElementById('login').classList.remove('hidden');
+            document.getElementById('forgot-password').classList.add('hidden');
+        }
+
+        // Show forgot password form
+        function showForgotPassword() {
+            document.getElementById('login').classList.add('hidden');
+            document.getElementById('signup').classList.add('hidden');
+            document.getElementById('forgot-password').classList.remove('hidden');
+        }
+
+        // Enable dark mode by default
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.documentElement.classList.add('dark');
+            const darkModeButtonIcon = document.getElementById('darkModeButtonIcon');
+            darkModeButtonIcon.classList.remove('fa-moon');
+            darkModeButtonIcon.classList.add('fa-sun');
+        });
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-screen font-roboto">
+    <div class="absolute top-4 right-4">
+        <button id="darkModeButton" onclick="toggleDarkMode()" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-4 py-2 rounded-lg">
+            <i id="darkModeButtonIcon" class="fas fa-sun"></i>
+        </button>
+    </div>
+    <div id="login" class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-gray-100">Login</h2>
+        <form action="#" method="POST">
+            <div class="mb-4">
+                <label for="username" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Username</label>
+                <input type="text" id="username" name="username" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-200" required>
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Password</label>
+                <input type="password" id="password" name="password" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-200" required>
+            </div>
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember" name="remember" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 dark:border-gray-600 rounded">
+                    <label for="remember" class="ml-2 block text-gray-900 dark:text-gray-300">Remember me</label>
+                </div>
+                <a href="javascript:void(0);" onclick="showForgotPassword()" class="text-blue-600 dark:text-blue-400 hover:underline">Forgot password?</a>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Login</button>
+        </form>
+        <div class="text-center my-4">
+            <span class="text-gray-600 dark:text-gray-400">or</span>
+        </div>
+        <div class="text-center">
+            <a href="/auth/google" class="w-full inline-flex items-center justify-center bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500">
+                <i class="fab fa-google mr-2"></i> Sign in with Google
+            </a>
+        </div>
+        <p class="text-center text-gray-600 dark:text-gray-400 mt-6">Don't have an account? <a href="javascript:void(0);" onclick="showSignUp()" class="text-blue-600 dark:text-blue-400 hover:underline">Sign Up</a></p>
+    </div>
+
+    <div id="signup" class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md mt-8 hidden">
+        <h2 class="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-gray-100">Sign Up</h2>
+        <form action="#" method="POST">
+            <div class="mb-4">
+                <label for="new-username" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Username</label>
+                <input type="text" id="new-username" name="new-username" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-200" required>
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Email</label>
+                <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-200" required>
+            </div>
+            <div class="mb-6">
+                <label for="new-password" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Password</label>
+                <input type="password" id="new-password" name="new-password" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-200" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Sign Up</button>
+        </form>
+        <p class="text-center text-gray-600 dark:text-gray-400 mt-6">Already have an account? <a href="javascript:void(0);" onclick="showLogin()" class="text-blue-600 dark:text-blue-400 hover:underline">Login</a></p>
+    </div>
+
+    <div id="forgot-password" class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md mt-8 hidden">
+        <h2 class="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-gray-100">Forgot Password</h2>
+        <form action="#" method="POST">
+            <div class="mb-4">
+                <label for="reset-email" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Email</label>
+                <input type="email" id="reset-email" name="reset-email" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-200" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Reset Password</button>
+        </form>
+        <p class="text-center text-gray-600 dark:text-gray-400 mt-6">Remembered your password? <a href="javascript:void(0);" onclick="showLogin()" class="text-blue-600 dark:text-blue-400 hover:underline">Login</a></p>
+    </div>
+</body>
+</html>
