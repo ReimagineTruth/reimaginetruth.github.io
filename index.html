@@ -78,35 +78,30 @@
         .light-mode .hover\:bg-gray-600:hover {
             background-color: #e2e8f0;
         }
+        .nav-link {
+            transition: color 0.3s ease-in-out;
+        }
+        .nav-link:hover {
+            color: #63B3ED;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
+    <header class="bg-gray-800 p-4 text-center">
+        <h1 class="text-3xl font-bold text-white" id="header-title">Reimagine Truth</h1>
+    </header>
+
+    <nav class="bg-gray-900 p-4 hidden md:block">
+        <ul class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6 text-lg">
+            <li><a href="home.html" class="nav-link flex items-center"><i class="fas fa-home mr-2"></i>Home</a></li>
+            <li><a href="my-assets.html" class="nav-link flex items-center"><i class="fas fa-wallet mr-2"></i>My Assets</a></li>
+            <li><a href="about.html" class="nav-link flex items-center"><i class="fas fa-info-circle mr-2"></i>About</a></li>
+            <li><a href="community.html" class="nav-link flex items-center"><i class="fas fa-users mr-2"></i>Community</a></li>
+            <li><a href="settings.html" class="nav-link flex items-center"><i class="fas fa-cog mr-2"></i>Settings</a></li>
+        </ul>
+    </nav>
+
     <div class="flex flex-col md:flex-row">
-        <aside class="w-full md:w-64 bg-gray-800 h-auto md:h-screen p-4 hidden md:block sticky-sidebar sidebar" id="sidebar">
-            <div class="flex items-center mb-6">
-                <img alt="A sharply dressed, intense-looking male character" class="w-16 h-16 rounded-full" height="64" src="https://i.ibb.co/p30Q5fs/Leonardo-Kino-XL-A-sharplydressed-intenselooking-male-characte-3.jpg" width="64"/>
-                <h2 class="ml-4 text-xl font-bold">Reimagine Truth</h2>
-            </div>
-            <nav>
-                <ul>
-                    <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-gray-100 sidebar-item" href="#">Home</a>
-                    </li>
-                    <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-gray-100 sidebar-item" href="#">My Assets</a>
-                    </li>
-                    <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-gray-100 sidebar-item" href="#">About</a>
-                    </li>
-                    <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-gray-100 sidebar-item" href="#">Community</a>
-                    </li>
-                    <li class="mb-4">
-                        <a class="text-lg text-gray-200 hover:text-gray-100 sidebar-item" href="#">Settings</a>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
         <div class="flex-1">
             <header class="bg-gray-800 text-gray-200 p-4 flex justify-between items-center relative shadow-md">
                 <button class="md:hidden text-gray-200 absolute top-4 left-4" id="menu-button" aria-label="Toggle Menu">
@@ -121,6 +116,15 @@
                     <i class="fas fa-moon"></i>
                 </button>
             </header>
+            <nav class="bg-gray-900 p-4 md:hidden" id="mobile-menu" style="display: none;">
+                <ul class="flex flex-col space-y-4 text-lg">
+                    <li><a href="home.html" class="nav-link flex items-center"><i class="fas fa-home mr-2"></i>Home</a></li>
+                    <li><a href="my-assets.html" class="nav-link flex items-center"><i class="fas fa-wallet mr-2"></i>My Assets</a></li>
+                    <li><a href="about.html" class="nav-link flex items-center"><i class="fas fa-info-circle mr-2"></i>About</a></li>
+                    <li><a href="community.html" class="nav-link flex items-center"><i class="fas fa-users mr-2"></i>Community</a></li>
+                    <li><a href="settings.html" class="nav-link flex items-center"><i class="fas fa-cog mr-2"></i>Settings</a></li>
+                </ul>
+            </nav>
             <main class="p-4">
                 <div class="flex justify-center mb-6">
                     <input type="text" id="search-bar" placeholder="Search your NFT serial number #" class="w-full max-w-md p-2 rounded bg-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Search your NFT serial number">
@@ -183,14 +187,11 @@
     <audio id="click-sound" src="https://www.soundjay.com/button/sounds/button-16.mp3" preload="auto"></audio>
     <script>
         document.getElementById('menu-button').addEventListener('click', function() {
-            const sidebar = document.getElementById('sidebar');
-            const footer = document.getElementById('footer');
-            if (sidebar.classList.contains('hidden')) {
-                sidebar.classList.remove('hidden');
-                footer.classList.remove('hidden');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
+                mobileMenu.style.display = 'block';
             } else {
-                sidebar.classList.add('hidden');
-                footer.classList.add('hidden');
+                mobileMenu.style.display = 'none';
             }
             playClickSound();
         });
@@ -259,6 +260,9 @@
             document.body.classList.toggle('text-gray-200');
             document.body.classList.toggle('text-gray-900');
             document.body.classList.toggle('light-mode');
+            themeToggle.innerHTML = document.body.classList.contains('light-mode') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            document.getElementById('header-title').classList.toggle('text-white');
+            document.getElementById('header-title').classList.toggle('text-gray-900');
         });
     </script>
 </body>
